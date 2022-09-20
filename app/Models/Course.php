@@ -23,71 +23,71 @@ class Course extends Model
     // Relación 1:n
     // Recuperamos las calificaciones que se han realizado en el curso
     public function reviews(){
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany(Review::class);
     }
 
     // Relación 1:n
     // Recuperamos los requerimientos del curso
     public function requirements(){
-        return $this->hasMany('App\Models\Requirement');
+        return $this->hasMany(Requirement::class);
     }
 
     // Relación 1:n
     // Recuperamos las audiencias del curso
     public function audiences(){
-        return $this->hasMany('App\Models\Audience');
+        return $this->hasMany(Audience::class);
     }
 
     // Relación 1:n
     // Recuperamos las metas del curso
     public function goals(){
-        return $this->hasMany('App\Models\Goal');
+        return $this->hasMany(Goal::class);
     }
 
     // Relación 1:n
     // Recuperamos las secciones del curso
     public function sections(){
-        return $this->hasMany('App\Models\Section');
+        return $this->hasMany(Section::class);
     }    
 
     // Relación 1:n inversa de usuario profesor
     // Recuperamos el docente que imparte el curso
     public function teacher(){
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     // Relación 1:n inversa
     // Recuperamos el nivel que mantiene el curso
     public function level(){
-        return $this->belongsTo('App\Models\Level');
+        return $this->belongsTo(Level::class);
     }
 
     // Relación 1:n inversa
     // Recuperamos la categoría que mantiene el curso
     public function category(){
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsTo(Category::class);
     }
 
     // Relación 1:n inversa
     // Recuperamos el precio que mantiene el curso
     public function price(){
-        return $this->belongsTo('App\Models\Price');
+        return $this->belongsTo(Price::class);
     }
     
     // Relación n:m de usuario alumno
     // Recuperamos los estudiantes que pertenecen al curso
     public function students(){
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany(User::class);
     }
 
     // Relación 1:1 polimórfica
     // Recuperamos la imagen que tiene un curso
     public function images(){
-        return $this->morphOne('App\Models\Images', 'imageable');
+        return $this->morphOne(Image::class, 'imageable');
     }
 
     // hasManyThrough(modelo lesson, modelo de la tabla intermedia)
     public function lessons(){
-        return $this->hasManyThrough('App\Models\Lesson', 'App\Models\Section');
+        return $this->hasManyThrough(Lesson::class, 'App\Models\Section');
     }
 }

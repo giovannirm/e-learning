@@ -15,6 +15,6 @@ class Price extends Model
     // Relación 1:n
     // Recuperamos los cursos que mantiene un precio
     public function courses(){
-        return $this->hasMany('App\Models\Course');
+        return $this->hasMany(Course::class);
     }
 }

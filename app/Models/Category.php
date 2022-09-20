@@ -14,6 +14,6 @@ class Category extends Model
 
     // Recuperamos los cursos que mantiene una categoría
     public function courses(){
-        return $this->hasMany('App\Models\Course');
+        return $this->hasMany(Course::class);
     }
 }

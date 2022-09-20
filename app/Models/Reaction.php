@@ -22,6 +22,6 @@ class Reaction extends Model
     // Relación 1:n inversa
     // Recuperamos el usuario al que pertenece la reacción
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }    
 }

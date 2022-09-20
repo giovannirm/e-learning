@@ -62,42 +62,42 @@ class User extends Authenticatable
     // Relación 1:1
     // Recuperamos el perfil del usuario profesor
     public function profile(){
-        return $this->hasOne('App\Models\Profile');
+        return $this->hasOne(Profile::class);
     }
 
     // Relación 1:n de usuario profesor
     // Recuperamos los cursos dictados por el usuario profesor
     public function courses_dictated(){
-        return $this->hasMany('App\Models\Course');
+        return $this->hasMany(Course::class);
     }
 
     // Relación 1:n
     // Recuperamos las calificaciones que ha realizado algún usuario
     public function reviews(){
-        return $this->hasMany('App\Models\Review');
+        return $this->hasMany(Review::class);
     }
 
     // Relación 1:n
     // Recuperamos los comentarios que ha realizado algún usuario
     public function comments(){
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     // Relación 1:n
     // Recuperamos las reacciones que ha realizado algún usuario
     public function reactions(){
-        return $this->hasMany('App\Models\Reaction');
+        return $this->hasMany(Reaction::class);
     }
 
     // Relación n:m de usuario alumno
     // Recuperamos los cursos matriculados por el usuario alumno
     public function courses_enrolled(){
-        return $this->belongsToMany('App\Models\Course');
+        return $this->belongsToMany(Course::class);
     }
 
     // Relación n:m
     // Recuperamos las lecciones del usuario
     public function lessons(){
-        return $this->belongsToMany('App\Models\Lesson');
+        return $this->belongsToMany(Lesson::class);
     }
 }

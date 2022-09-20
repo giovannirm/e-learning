@@ -20,18 +20,18 @@ class Comment extends Model
     // Relación 1:n inversa
     // Recuperamos el usuario al que pertenece el comentario
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     // Relación 1:n polimórfica
     // Recuperamos los comentarios de los comentarios
     public function comments(){
-        return $this->morphMany('App\Models\Comment', 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     // Relación 1:n polimórfica
     // Recuperamos las reacciones de los comentarios
     public function reactions(){
-        return $this->morphMany('App\Models\Reaction', 'reactionable');
+        return $this->morphMany(Reaction::class, 'reactionable');
     }
 }

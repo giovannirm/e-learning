@@ -15,6 +15,6 @@ class Description extends Model
     // Relación 1:1 inversa
     // Recuperamos la lección a la que pertenece la descripción
     public function lesson(){
-        return $this->belongsTo('App\Models\Lesson');
+        return $this->belongsTo(Lesson::class);
     }
 }

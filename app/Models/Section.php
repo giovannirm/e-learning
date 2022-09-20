@@ -15,12 +15,12 @@ class Section extends Model
     // Relación 1:n
     // Recuperamos las lecciones que pertenecen a la sección
     public function lessons(){
-        return $this->hasMany('App\Models\Lesson');
+        return $this->hasMany(Lesson::class);
     }
 
     // Relación 1:n inversa
     // Recuperamos el curso al que pertenece la sección
     public function course(){
-        return $this->belongsTo('App\Models\Course');
+        return $this->belongsTo(Course::class);
     }
 }

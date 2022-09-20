@@ -15,6 +15,6 @@ class Level extends Model
     // Relación 1:n
     // Recuperamos los cursos que mantiene un nivel
     public function courses(){
-        return $this->hasMany('App\Models\Course');
+        return $this->hasMany(Course::class);
     }
 }

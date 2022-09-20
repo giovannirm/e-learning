@@ -15,7 +15,7 @@ class Profile extends Model
     // Relación 1:1 inversa
     // Recuperamos el usuario que mantiene un perfil
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
 }

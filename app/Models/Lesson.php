@@ -15,42 +15,42 @@ class Lesson extends Model
     // Relación 1:1
     // Recuperamos la descripción de la lección
     public function description(){
-        return $this->hasOne('App\Models\Description');
+        return $this->hasOne(Description::class);
     }
 
     // Relación 1:n inversa
     // Recuperamos la sección a la que pertenece la lección
     public function section(){
-        return $this->belongsTo('App\Models\Section');
+        return $this->belongsTo(Section::class);
     }
 
     // Relación 1:n inversa
     // Recuperamos la plataforma a la que pertenece la lección
     public function platform(){
-        return $this->belongsTo('App\Models\Platform');
+        return $this->belongsTo(Platform::class);
     }
 
     // Relación n:m
     // Recuperamos los usuarios que pertenecen a esa lección
     public function users(){
-        return $this->belongsToMany('App\Models\Users');
+        return $this->belongsToMany(User::class);
     }
 
     // Relación 1:1 polimórfica
     // Recuperamos el único recurso de la lección
     public function resource(){
-        return $this->morphOne('App\Models\Resource', 'resourceable');
+        return $this->morphOne(Resource::class, 'resourceable');
     }
 
     // Relación 1:n polimórfica
     // Recuperamos los comentarios de la lección
     public function comments(){
-        return $this->morphMany('App\Models\Comment', 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     // Relación 1:n polimórfica
     // Recuperamos las reacciones de la lección
     public function reactions(){
-        return $this->morphMany('App\Models\Reaction', 'reactionable');
+        return $this->morphMany(Reaction::class, 'reactionable');
     }
 }

@@ -15,6 +15,6 @@ class Audience extends Model
     // Relación 1:n inversa
     // Recuperamos el curso al que pertenece la sección
     public function course(){
-        return $this->belongsTo('App\Models\Course');
+        return $this->belongsTo(Course::class);
     }
 }
