@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->id();
 
-            // Estos atributos se le asignarán al usuario profesor solo cuando este tenga ese rol asignado
-            $table->string('title')->nullable();
-            $table->text('biography')->nullable();
-        
+            $table->text('body');
+
+            $table->unsignedBigInteger('question_id');
             $table->unsignedBigInteger('user_id');
-            
-            // Cuando el usuario se elimine, debería borrar todo su perfil
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('answers');
     }
 };

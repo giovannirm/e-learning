@@ -13,16 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('audiences', function (Blueprint $table) {
+        Schema::create('network_profile', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
+            $table->unsignedBigInteger('network_id');
+            $table->unsignedBigInteger('profile_id');
 
-            $table->unsignedBigInteger('course_id');
-
-            // Si se elimina el curso también deberían eliminarse las audiencias
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-
+            $table->string('link');
+            
+            $table->foreign('network_id')->references('id')->on('networks');
+            $table->foreign('profile_id')->references('id')->on('profiles');
+            
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audiences');
+        Schema::dropIfExists('network_profile');
     }
 };

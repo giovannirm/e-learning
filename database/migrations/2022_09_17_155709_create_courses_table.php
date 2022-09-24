@@ -18,10 +18,17 @@ return new class extends Migration
             $table->id();
 
             $table->string('title');
+            $table->string('slug');
             $table->string('subtitle');
             $table->text('description');
+            $table->string('image_url');
+            $table->string('video_url');
+            $table->text('welcome_message');
+            $table->text('goodbye_message');
+            $table->text('observation');
+            $table->string('referral_code');
             $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
-            $table->string('slug');
+            $table->dateTime('published_at');
 
             $table->unsignedBigInteger('user_id');
             // Permitimos valores nulos, en caso de que se elimine se setee a null

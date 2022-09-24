@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Offer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,17 +14,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lesson_user', function (Blueprint $table) {
+        Schema::create('offers', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('lesson_id');
+            $table->string('title');
+            $table->string('code');
+            $table->enum('type', [Offer::PERCENTAGE_DISCOUNT, Offer::FIXED_PRICE]);
+            $table->unsignedFloat('value');
+            $table->dateTime('start_at');
+            $table->dateTime('finish_at');
+            $table->boolean('active');
+            
             $table->unsignedBigInteger('user_id');
-            $table->boolean('culminated');
-            $table->time('time');
 
-            // Si se elimina una lección quiero que se eliminen su registro de completado
-            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
-            // Si se elimina un usuario quiero que se eliminen su registro de completado
+            // Si se elimina un usuario la oferta que creó este usuario debería eliminarse
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
@@ -37,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lesson_user');
+        Schema::dropIfExists('offers');
     }
 };

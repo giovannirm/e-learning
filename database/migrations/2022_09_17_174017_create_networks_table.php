@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('requirements', function (Blueprint $table) {
+        Schema::create('networks', function (Blueprint $table) {
             $table->id();
 
             $table->string('name');
-            $table->unsignedTinyInteger('position');
-
-            $table->unsignedBigInteger('course_id');
-
-            // Si se elimina el curso también deberían eliminarse los requerimientos
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->string('logo');
 
             $table->timestamps();
         });
@@ -35,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requirements');
+        Schema::dropIfExists('networks');
     }
 };

@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
-
+    
     // Habilitamos asignación masiva
     protected $guarded = ['id'];
+
+    const HLIGHTED = 1;
+    const OVERSHADOWED = 2;
+
+    const REPORTING_LIMIT = 0;
     
     // Relación 1:1 inversa
     // Recuperamos el usuario que ha realizado alguna calificación

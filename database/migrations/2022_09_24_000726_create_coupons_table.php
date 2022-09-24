@@ -13,15 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('requirements', function (Blueprint $table) {
+        Schema::create('coupons', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->unsignedTinyInteger('position');
+            // Si hay cupones negativos podrían pedir devolución de dinero
+            $table->unsignedFloat('price');
+            $table->dateTime('start_at');
+            $table->dateTime('finish_at');
+            $table->string('code');
+            $table->unsignedTinyInteger('quantity');
 
             $table->unsignedBigInteger('course_id');
 
-            // Si se elimina el curso también deberían eliminarse los requerimientos
+            // Si se elimina el curso donde se han generado cupones, también deberían eliminarse los cupones
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
 
             $table->timestamps();
@@ -35,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requirements');
+        Schema::dropIfExists('coupons');
     }
 };
