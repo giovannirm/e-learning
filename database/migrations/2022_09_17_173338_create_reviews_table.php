@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
 
             $table->text('comment');
-            $table->tinyInteger('rating');
+            $table->unsignedTinyInteger('rating');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
