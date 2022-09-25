@@ -72,19 +72,43 @@ class User extends Authenticatable
     }
 
     // Relación 1:n
-    // Recuperamos las calificaciones que ha realizado algún usuario
+    // Recuperamos las preguntas que ha realizado un usuario
+    public function questions(){
+        return $this->hasMany(Question::class);
+    }
+
+    // Relación 1:n
+    // Recuperamos las respuestas que ha realizado un usuario
+    public function answers(){
+        return $this->hasMany(Answer::class);
+    }
+
+    // Relación 1:n
+    // Recuperamos las ofertas que ha realizado un usuario administrador
+    public function offers(){
+        return $this->hasMany(Offer::class);
+    }
+
+    // Relación 1:n
+    // Recuperamos las compras que ha realizado un usuario alumno
+    public function purchases(){
+        return $this->hasMany(Purchase::class);
+    }
+
+    // Relación 1:n
+    // Recuperamos las calificaciones que ha realizado un usuario
     public function reviews(){
         return $this->hasMany(Review::class);
     }
 
     // Relación 1:n
-    // Recuperamos los comentarios que ha realizado algún usuario
+    // Recuperamos los comentarios que ha realizado un usuario
     public function comments(){
         return $this->hasMany(Comment::class);
     }
 
     // Relación 1:n
-    // Recuperamos las reacciones que ha realizado algún usuario
+    // Recuperamos las reacciones que ha realizado un usuario
     public function reactions(){
         return $this->hasMany(Reaction::class);
     }
@@ -96,7 +120,7 @@ class User extends Authenticatable
     }
 
     // Relación n:m
-    // Recuperamos las lecciones del usuario
+    // Recuperamos las lecciones que debe realizar el usuario
     public function lessons(){
         return $this->belongsToMany(Lesson::class);
     }

@@ -21,6 +21,12 @@ class Course extends Model
     const PUBLICADO = 3;
 
     // Relación 1:n
+    // Recuperamos los cupones que se han generado en el curso
+    public function coupons(){
+        return $this->hasMany(Coupon::class);
+    }
+
+    // Relación 1:n
     // Recuperamos las calificaciones que se han realizado en el curso
     public function reviews(){
         return $this->hasMany(Review::class);
@@ -33,12 +39,6 @@ class Course extends Model
     }
 
     // Relación 1:n
-    // Recuperamos las audiencias del curso
-    public function audiences(){
-        return $this->hasMany(Audience::class);
-    }
-
-    // Relación 1:n
     // Recuperamos las metas del curso
     public function goals(){
         return $this->hasMany(Goal::class);
@@ -48,7 +48,7 @@ class Course extends Model
     // Recuperamos las secciones del curso
     public function sections(){
         return $this->hasMany(Section::class);
-    }    
+    }
 
     // Relación 1:n inversa de usuario profesor
     // Recuperamos el docente que imparte el curso
@@ -80,14 +80,26 @@ class Course extends Model
         return $this->belongsToMany(User::class);
     }
 
+    // Relación n:m
+    // Recuperamos las compras donde se encuentra el mismo curso
+    public function purchases(){
+        return $this->belongsToMany(Purchase::class);
+    }
+    
     // Relación 1:1 polimórfica
-    // Recuperamos la imagen que tiene un curso
+    // Recuperamos la única imagen que tiene un curso
     public function images(){
         return $this->morphOne(Image::class, 'imageable');
     }
 
+    // Relación 1:n polimórfica
+    // Recuperamos las reacciones del curso
+    public function reactions(){
+        return $this->morphMany(Reaction::class, 'reactionable');
+    }
+
     // hasManyThrough(modelo lesson, modelo de la tabla intermedia)
     public function lessons(){
-        return $this->hasManyThrough(Lesson::class, 'App\Models\Section');
+        return $this->hasManyThrough(Lesson::class, Section::class);
     }
 }

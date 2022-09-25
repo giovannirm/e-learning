@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('slug');
             $table->string('subtitle');
             $table->text('description');
-            $table->string('image_url');
-            $table->string('video_url');
+            // $table->string('image_url');
+            // $table->string('video_url');
             $table->text('welcome_message');
             $table->text('goodbye_message');
             $table->text('observation');

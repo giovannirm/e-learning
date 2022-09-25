@@ -36,12 +36,12 @@ class Lesson extends Model
         return $this->belongsToMany(User::class);
     }
 
-    // Relación 1:1 polimórfica
+    // Relación 1:n polimórfica
     // Recuperamos el único recurso de la lección
     public function resource(){
-        return $this->morphOne(Resource::class, 'resourceable');
+        return $this->morphMany(Resource::class, 'resourceable');
     }
-
+    
     // Relación 1:n polimórfica
     // Recuperamos los comentarios de la lección
     public function comments(){

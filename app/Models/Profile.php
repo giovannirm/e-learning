@@ -18,4 +18,9 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
+    // Relación n:m
+    // Recuperamos las redes sociales de los perfiles
+    public function networks(){
+        return $this->belongsToMany(Network::class);
+    }
 }

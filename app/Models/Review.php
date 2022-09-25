@@ -17,14 +17,14 @@ class Review extends Model
 
     const REPORTING_LIMIT = 0;
     
-    // Relación 1:1 inversa
-    // Recuperamos el usuario que ha realizado alguna calificación
+    // Relación 1:n inversa
+    // Recuperamos el usuario que ha realizado una calificación
     public function user(){
         return $this->belongsTo(User::class);
     }
 
-    // Relación 1:1 inversa
-    // Recuperamos el curso que ha recibido alguna calificación
+    // Relación 1:n inversa
+    // Recuperamos el curso que ha recibido una calificación
     public function course(){
         return $this->belongsTo(Course::class);
     }

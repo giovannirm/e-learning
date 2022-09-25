@@ -14,7 +14,7 @@ class Platform extends Model
     
     // Relación 1:n
     // Recuperamos las lecciones que pertenecen a la plataforma
-    public function lesson(){
+    public function lessons(){
         return $this->hasMany(Lesson::class);
     }
 }
