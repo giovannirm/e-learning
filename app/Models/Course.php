@@ -14,11 +14,11 @@ class Course extends Model
     protected $guarded = ['id', 'status'];
 
     // Indicará el estado inicial al crear un curso
-    const BORRADOR = 1;
+    const ERASER = 1;
     // Indicará el estado en revisión cuando se verifique si el curso es válido
     const REVISION = 2;
     // Cuando el curso ha sido publicado y ha pasado todas las pruebas de calidad
-    const PUBLICADO = 3;
+    const PUBLISHED = 3;
 
     // Relación 1:n
     // Recuperamos los cupones que se han generado en el curso

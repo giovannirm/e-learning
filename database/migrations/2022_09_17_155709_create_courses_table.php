@@ -25,10 +25,12 @@ return new class extends Migration
             // $table->string('video_url');
             $table->text('welcome_message');
             $table->text('goodbye_message');
-            $table->text('observation');
+            // La observación se pondrá cuando el curso esté en estado REVISION
+            $table->text('observation')->nullable();
+            // Cada curso creado se generará un código de referido que hace referencia al usuario profesor
             $table->string('referral_code');
-            $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
-            $table->dateTime('published_at');
+            $table->enum('status', [Course::ERASER, Course::REVISION, Course::PUBLISHED])->default(Course::ERASER);
+            $table->dateTime('published_at')->nullable();
 
             $table->unsignedBigInteger('user_id');
             // Permitimos valores nulos, en caso de que se elimine se setee a null
