@@ -23,7 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
 
-            $table->enum('hlighted', [Review::HLIGHTED, Review::OVERSHADOWED])->default(Review::OVERSHADOWED);
+            // $table->enum('hlighted', [Review::HLIGHTED, Review::OVERSHADOWED])->default(Review::OVERSHADOWED);
+            $table->boolean('hlighted')->default(false);
             // Para indicar que esta calificación ha sido denunciada, el límite máximo de denuncias debe ser de 3
             $table->integer('denounced')->default(Review::REPORTING_LIMIT);
             

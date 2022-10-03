@@ -20,8 +20,7 @@ class ImageFactory extends Factory
     {
         return [
             // Usaremos otra alternativa porque faker anda fallando
-            // 'url' => 'courses/' . fake()->image('public/storage/courses', 640, 480, null, false),      
-            'url' => 'https://api.lorem.space/image/face?w=640&h=480&key=' . Str::random(64),      
+            'url' => 'courses/' . fake()->image('public/storage/courses', 640, 480, null, false),
         ];
     }
 }

@@ -12,8 +12,8 @@ class Review extends Model
     // Habilitamos asignación masiva
     protected $guarded = ['id'];
 
-    const HLIGHTED = 1;
-    const OVERSHADOWED = 2;
+    // const HLIGHTED = 1;
+    // const OVERSHADOWED = 2;
 
     const REPORTING_LIMIT = 0;
     
