@@ -1,0 +1,25 @@
+.grid-courses{
+    @apply grid grid-cols-1;
+}
+
+.gap-courses{
+    @apply gap-x-6 gap-y-8;
+}
+
+@media(min-width:640px) {
+    .grid-courses{
+        @apply grid-cols-2;
+    }
+}
+
+@media(min-width:768px) {
+    .grid-courses{
+        @apply grid-cols-3;
+    }
+}
+
+@media(min-width:1024px) {
+    .grid-courses{
+        @apply grid-cols-4;
+    }
+}

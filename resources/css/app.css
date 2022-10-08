@@ -1,3 +1,7 @@
+@import 'common.css';
+@import 'buttons.css';
+@import 'grids.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
