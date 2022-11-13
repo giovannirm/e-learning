@@ -57,12 +57,11 @@ class CourseSeeder extends Seeder
 
                 $position_lesson = range(1,4);
                 shuffle($position_lesson);
-                for ($i = 0; $i <= 3; $i++) {
+                for ($j = 0; $j <= 3; $j++) {
                     $lesson = Lesson::factory(1)->create([
                         'section_id' => $section[0]->id,
                         'position' => $position_lesson[$i],
                     ]);
-
                     Description::factory(1)->create([
                         'lesson_id' => $lesson[0]->id,
                     ]);

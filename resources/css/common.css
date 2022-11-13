@@ -25,3 +25,7 @@
         @apply px-8;
     }
 }
+
+.text{
+    @apply text-gray-700 text-base;
+}

@@ -29,11 +29,3 @@ Route::resource('courses', CourseController::class);
 //     Route::get('courses/create', 'create');
 //     Route::get('courses/{course}', 'show');
 // });
-
-// Route::get('courses', function () {
-//     return 'Aquí se mostrará la lista de cursos';
-// })->name('courses.index');
-
-// Route::get('courses/{course}', function () {
-//     return 'Aquí se va a mostrar la información del curso';
-// })->name('courses.show');

@@ -133,7 +133,7 @@ class Course extends Model
 
     // Relación 1:1 polimórfica
     // Recuperamos la única imagen que tiene un curso
-    public function images()
+    public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
     }

@@ -169,9 +169,16 @@
 
     "Search in courses": "¿Qué quieres aprender?",
     "Categories": "Categorías",
+    "Category": "Categoría",
+    "Description": "Descripción",
     "Levels": "Niveles",
+    "Level": "Nivel",
     "All courses": "Todos los cursos",
-
+    "Enrolled": "Matriculados",
+    "Qualification": "Calificación",
+    "What you will learn": "Lo que aprenderás",
+    "Requirements": "Requisitos",
+    "Take this course": "Llevar este curso",
 
     
     "E-Learning": "Plataforma de cursos"
